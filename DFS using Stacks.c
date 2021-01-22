@@ -1,6 +1,7 @@
-/* C program to Implement Depth First Search Algorithm using Stacks. 
-   Roll number: 20MCMB05
-   Name: Lakshminarayana Jaladurgam
+/* 
+	Roll number: 20MCMB05
+	Name: Lakshminarayana Jaladurgam
+	C program to Implement Depth First Search Algorithm using Stacks. 
 */
 
 #include <stdio.h>
@@ -33,25 +34,29 @@ int vertexCount = 0;
 
 //stack functions
 
+// Stack funtion - Push item
 void push(int item) { 
    stack[++top] = item; 
 } 
 
+// Stack funtion - Push Pop
 int pop() { 
    return stack[top--]; 
 } 
 
+// Stack funtion - Push Peek
 int peek() {
    return stack[top];
 }
 
+// Stack funtion - Stack empty
 bool isStackEmpty() {
    return top == -1;
 }
 
 //graph functions
 
-//add vertex to the vertex list
+//Add vertex to the vertex list
 void addVertex(char label) {
    struct Vertex* vertex = (struct Vertex*) malloc(sizeof(struct Vertex));
    vertex->label = label;  
@@ -73,13 +78,13 @@ void displayStack( ){
 			
 }
 
-//display the vertex
+//Display the vertex
 void displayVertex(int vertexIndex) {
    printf("\nNode Visited: %c ",lstVertices[vertexIndex]->label);
    displayStack( );
 }       
 
-//get the adjacent unvisited vertex
+//Get the adjacent unvisited vertex
 int getAdjUnvisitedVertex(int vertexIndex) {
    int i;
 
@@ -92,6 +97,7 @@ int getAdjUnvisitedVertex(int vertexIndex) {
    return -1;
 }
 
+//Funtion for Depth First Search 
 void depthFirstSearch() {
    int i;
 
@@ -110,11 +116,11 @@ void depthFirstSearch() {
 
       //no adjacent vertex found
       if(unvisitedVertex == -1) {
-         pop();
+        pop();
       } else {
-         lstVertices[unvisitedVertex]->visited = true;
-         push(unvisitedVertex);
-         displayVertex(unvisitedVertex);
+	    lstVertices[unvisitedVertex]->visited = true;
+	    push(unvisitedVertex);
+	    displayVertex(unvisitedVertex);
       }
    }
 
@@ -124,6 +130,7 @@ void depthFirstSearch() {
    }        
 }
 
+// Driver code - Main is the first function that gets executed
 int main() 
 {
    int i, j; 
@@ -131,7 +138,7 @@ int main()
    for(i = 0; i < MAX; i++)    // set adjacency 
    {
       for(j = 0; j < MAX; j++) // matrix to 0
-         adjMatrix[i][j] = 0;
+        adjMatrix[i][j] = 0;
    }
    
    addVertex('0');   // Node 0

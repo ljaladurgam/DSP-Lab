@@ -1,18 +1,21 @@
-/* C program to Implement Breadth First Search Algorithm using Queues. 
-   Roll number: 20MCMB05
-   Name: Lakshminarayana Jaladurgam
+/* 
+	Roll number: 20MCMB05
+	Name: Lakshminarayana Jaladurgam
+	C program to Implement Breadth First Search Algorithm using Queues. 
 */
 
 #include <stdio.h>
 #include <stdlib.h>
 #define SIZE 40
 
+// Define data structure for Queue
 struct queue {
   int items[SIZE];
   int front;
   int rear;
 };
 
+// Declare funtions
 struct queue* createQueue();
 void enqueue(struct queue* q, int);
 int dequeue(struct queue* q);
@@ -20,6 +23,7 @@ void display(struct queue* q);
 int isEmpty(struct queue* q);
 void printQueue(struct queue* q);
 
+//Define data structure for Vertex
 struct node {
   int vertex;
   struct node* next;
@@ -27,6 +31,7 @@ struct node {
 
 struct node* createNode(int);
 
+//Define data structure for Graph 
 struct Graph {
   int numVertices;
   struct node** adjLists;
@@ -156,25 +161,30 @@ void printQueue(struct queue* q) {
   }
 }
 
+// Driver code - Main is the first function that gets executed
 int main() {
+  //Create Grpah 1 
   struct Graph* graph1 = createGraph(5);
-  addEdge(graph1, 0, 1);
-  addEdge(graph1, 0, 2);
-  addEdge(graph1, 0, 3);
-  addEdge(graph1, 1, 2);
-  addEdge(graph1, 2, 4); 
+  addEdge(graph1, 0, 1); //Add edge between vertex 0 and 1
+  addEdge(graph1, 0, 2); //Add edge between vertex 0 and 2
+  addEdge(graph1, 0, 3); //Add edge between vertex 0 and 3
+  addEdge(graph1, 1, 2); //Add edge between vertex 1 and 2
+  addEdge(graph1, 2, 4); //Add edge between vertex 1 and 4
   
   printf("Breadth First Search Output for First Graph: \n");
+  //Call funtion to perform Breadth First Search for Graph 1
   bfs(graph1, 0);
   
+  //Create Graph 2
   struct Graph* graph2 = createGraph(6);
-  addEdge(graph2, 1, 2);
-  addEdge(graph2, 1, 4);
-  addEdge(graph2, 2, 3);
-  addEdge(graph2, 2, 5); 
-  addEdge(graph2, 5, 6); 
+  addEdge(graph2, 1, 2); //Add edge between vertex 1 and 2
+  addEdge(graph2, 1, 4); //Add edge between vertex 1 and 4
+  addEdge(graph2, 2, 3); //Add edge between vertex 2 and 3
+  addEdge(graph2, 2, 5); //Add edge between vertex 2 and 5
+  addEdge(graph2, 5, 6); //Add edge between vertex 5 and 6
 
   printf("\n\nBreadth First Search Output for Second Graph: \n");
+  //Call funtion to perform Breadth First Search for Graph 2
   bfs(graph2, 1);
 
   return 0;

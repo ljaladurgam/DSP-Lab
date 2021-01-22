@@ -1,6 +1,10 @@
-/* Implement a generic doubly linked list in C. Using the implemented 
-   generic doubly linked list, implement Radix sorting technique to 
-   sort positive integer numbers. */
+/* 
+	Roll number: 20MCMB05
+	Name: Lakshminarayana Jaladurgam
+	Program to Implement a generic doubly linked list in C. Using the implemented 
+	generic doubly linked list, implement Radix sorting technique to sort positive
+	integer numbers. 
+*/
    
 #include <stdio.h>
 #include <stdlib.h> 
@@ -8,7 +12,7 @@
 #include <math.h>
 
 
-// Define the Node 
+// Define the Node data structure
 struct Node {
     int data;
     // Pointer to the previous node
@@ -17,16 +21,19 @@ struct Node {
     struct Node* next;
 };
 
+// Define the List data structure
 struct List { 
     // Pointer to the left and right children
     struct Node* dummy;
 };
 
+// Define the Radix data structure 
 struct Radix { 
     // Pointer to the left and right children
     struct List* list;
 };
 
+// Funtion to check the valid character
 int isValidChar(char s)
 {
 	if( s == '0' || s == '1' || 
@@ -41,6 +48,7 @@ int isValidChar(char s)
 		return 0;
 }
 
+// Function to get the length of the number
 int getNumLength(int n)
 {	
 	int length = 0;
@@ -52,6 +60,7 @@ int getNumLength(int n)
    return length;
 }
 
+// Funtion to get the value at the given position in a number
 int valueAt(int num, int n)
 {	
 	int r; 
@@ -60,6 +69,7 @@ int valueAt(int num, int n)
     return r;
 }
 
+// Function to insert the data
 void insertData(struct List* list, int d)
 {
 	struct Node* temp_node = list->dummy;
@@ -71,7 +81,7 @@ void insertData(struct List* list, int d)
 	{ 
     	new_node->data = d; 
 		temp_node->next = new_node;
-		temp_node->prev = NULL; //
+		temp_node->prev = NULL; 
 	}
 	else
 	{
@@ -92,9 +102,9 @@ void insertData(struct List* list, int d)
     	new_node->data = d; 
 		prev_node->next = new_node; 
 		new_node->next = next_node;
-		new_node->prev = prev_node;//
-		if(next_node != NULL)//2
-		    next_node->prev = new_node;//2
+		new_node->prev = prev_node;
+		if(next_node != NULL)
+		    next_node->prev = new_node;
 	}
 }
 
@@ -120,8 +130,8 @@ struct Node* deleteNode(struct List* list, int d)
 			{
 				temp_del = next_node; 
 				prev_node->next = next_node->next;
-				next_node->prev = prev_node;// 
-				temp_del->prev = NULL;//
+				next_node->prev = prev_node;
+				temp_del->prev = NULL;
 				temp_del->next = NULL;
 				return prev_node->next;
 			}
