@@ -40,9 +40,52 @@ Link for questions: https://scislearn2.uohyd.ac.in/moodle/course/view.php?id=35#
 4. Given a Arithmetic Expression, build the expression tree and from the generated tree Evaluate the expression tree using its prefix notation.
 
 
-Lab-3: Dec 3, 2020
+Lab-4: Dec 16, 2020
 Link for questions: https://scislearn2.uohyd.ac.in/moodle/course/view.php?id=35#section-2
 
+1. Given a binary search tree, find height of it using C Program. 
+2. Given some node values, build the binary search tree, and print the Pre, In and Post order traversal of the built BST. Condition is that 
+   the Post order Traversal method should implement in Iterative Way. 
+3. Using the implemented stack write program to convert an infix expression to postfix expression.
+
+Lab-5: Dec 16, 2020
+Link for questions: https://scislearn2.uohyd.ac.in/moodle/course/view.php?id=35#section-3
+
+1. Implement a generic doubly linked list in C. Using the implemented generic doubly linked list, implement Radix sorting technique to 
+   sort positive integer numbers.
+ 
+Lab-6: Dec 17, 2020
+Link for questions: https://classroom.google.com/u/0/c/MjI5NjI4ODUyMjk3/a/MTg2MTA2MDI5MjQ1/details
+
+1. Write a program to build a BST and to find the height of the tree using Iterative Method.
+2. Add the functions to print the preorder and In order traversal using Iterative Method.
+
+Lab-7: Jan 7, 2021
+Link for questions: https://classroom.google.com/u/0/c/MjI5NjI4ODUyMjk3/a/MjIzNTQ0OTU3MjIx/details
+
+1. Write Algorithms for DFS, BFS, Warshall and Floyd-warshall finding shortest paths.
+
+Lab-7: Jan 9, 2021
+Link for questions: https://classroom.google.com/u/0/c/MjI5NjI4ODUyMjk3/a/MjUxNTM4NTk0NzQ3/details
+
+1. Implement Breadth First Search Algorithm using Queues. 
+2. Implement Depth First Search Algorithm using Stacks.
+
+Lab-8: Jan 23, 2021
+Link for questions: https://classroom.google.com/u/0/c/MjI5NjI4ODUyMjk3/a/MjU5Mzk2ODUwODc4/details
+
+1. You should implement Adjacency List data structure to represent an undirected graph.
+   The implemented adjacency list should be used to compute the number of connected components.
+   The input graph file name will be provided as a command line argument.
+2. Implement Floyd-Warshall algorithm to find the shortest path between Nodes.
+   Output should print the adjacency matrix with the shortest paths.
+
+Lab-8: Jan 29, 2021
+Link for questions: https://classroom.google.com/u/0/c/MjI5NjI4ODUyMjk3/a/MjUyMzg2MTg0MTIx/details
+
+1. Write a Menu Driven Program on B - Trees
+2. Implement Krushkal's Algorithm for finding the  Minimum Spanning Tree  of a Graph. 
+   [Choose any weighted graph of your choice with minimum 6 Vertices and > 6 Edges ]
 
 
 
