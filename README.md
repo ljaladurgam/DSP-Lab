@@ -1,6 +1,8 @@
 # DSP-Lab
 DSP Lab: 
 This repository contains below programs written in DSP Lab. 
+Roll no: 20MCMB05
+Name: Lakshminarayana Jaladurgam. 
 
 Lab-1: Nov 19, 2020
 Link for questions: https://classroom.google.com/u/0/c/MjI5NjI4ODUyMjk3/a/MjA4MjIzODQyMDg1/details
