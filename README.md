@@ -1,5 +1,5 @@
 # DSP-Lab
-DSP Lab files
+DSP Lab: 
 This repository contains below programs written in DSP Lab. 
 
 Lab-1: Nov 19, 2020
