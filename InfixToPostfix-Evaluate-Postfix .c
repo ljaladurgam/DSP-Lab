@@ -117,13 +117,13 @@ int infixToPostfix(char* exp)
 			exp[++k] = exp[i]; 
 		
 		// If the scanned character is an 
-		// ‘(‘, push it to the stack. 
+		// â€˜(â€˜, push it to the stack. 
 		else if (exp[i] == '(') 
 			push(stack, exp[i]); 
 		
-		// If the scanned character is an ‘)’, 
+		// If the scanned character is an â€˜)â€™, 
 		// pop and output from the stack 
-		// until an ‘(‘ is encountered. 
+		// until an â€˜(â€˜ is encountered. 
 		else if (exp[i] == ')') 
 		{ 
 			while (!isEmpty(stack) && peek(stack) != '(') 
