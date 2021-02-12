@@ -2,14 +2,14 @@
    Roll number: 20MCMB05
    Name: Lakshminarayana Jaladurgam
    Menu driven C program to perform the operations Insert, Delete, Search, Find Height
-   and Print on B-Trees.   
+   and Print using Pre-Order traversal on B-Trees.   
 */  
- 
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdbool.h> 
  
-// A BTree node 
+// Define BTree node structure
 struct BTreeNode 
 { 
 	int *keys; // An array of keys 
@@ -19,12 +19,15 @@ struct BTreeNode
 	bool leaf; // Is true when node is leaf. Otherwise false 
 };
 
+//Define BTree structure
 struct BTree 
 { 
 	struct BTreeNode *root; // Pointer to root node 
 	int t; // Minimum degree 
 };
- 
+
+//Declaration of functions 
+
 //Create new BTreeNode
 struct BTreeNode* newBTreeNode(int _t, bool _leaf);
 
@@ -84,35 +87,13 @@ void borrowFromNextBTreeNode(struct BTreeNode *btn, int idx);
 // the node 
 void mergeBTreeNode( struct BTreeNode *btn, int idx); 
 
-// Initializes tree as empty
-struct BTree* newBTree(int _t) 
-{ 	
-    struct BTree* btree;       
-	btree = (struct BTree *) malloc( sizeof(struct BTree) ); 
-	
-	//btree->root = btnode = NULL; 
-	btree->root = NULL; 
-	btree->t = _t; 
-	return btree;
-} 
-
-void traverseBTree( struct BTree *btree ) 
-{ 
-	if (btree->root != NULL) traverseBTreeNode(btree->root); 
-} 
-
-// function to search a key in this tree 
-struct BTreeNode* searchBTree(struct BTree *btree, int k) 
-{ 
-	return (btree->root == NULL)? NULL : searchBTreeNode(btree->root, k); 
-} 
-
 // The main function that inserts a new key in this B-Tree 
 void insertBTree(struct BTree *btree, int k); 
 
 // The main function that removes a new key in thie B-Tree 
 void removeBTree(struct BTree *btree, int k); 
 
+// Create New BTreeNode
 struct BTreeNode* newBTreeNode(int t1, bool leaf1) 
 { 
     struct BTreeNode* btNode; 
@@ -123,20 +104,39 @@ struct BTreeNode* newBTreeNode(int t1, bool leaf1)
 	btNode->leaf = leaf1; 
 
 	// Allocate memory for maximum number of possible keys 
-	// and child pointers
-	//btNode->keys = new int[2*t-1];  
+	// and child pointers  
 	int* keys1 = malloc(2*t1-1*sizeof(*keys1));   
-	btNode->keys = keys1; 
-	//btNode->C = new BTreeNode *[2*t]; 
-	//struct BTreeNode* btn = (struct BTreeNode *) malloc(2*t1*sizeof(struct BTreeNode) );  
-	struct BTreeNode* btn = malloc(2*t1*sizeof(*btn));   
-	//struct BTreeNode* btn[2*t1]; 
+	btNode->keys = keys1;    
+	struct BTreeNode* btn = malloc(2*t1*sizeof(*btn));  
 	btNode->C = btn;  
 
 	// Initialize the number of keys as 0 
 	btNode->n = 0; 
 	
 	return btNode;
+} 
+
+// Initializes tree as empty
+struct BTree* newBTree(int _t) 
+{ 	
+    struct BTree* btree;       
+	btree = (struct BTree *) malloc( sizeof(struct BTree) ); 
+	
+	btree->root = NULL; 
+	btree->t = _t; 
+	return btree;
+} 
+
+//Traverse BTree
+void traverseBTree( struct BTree *btree ) 
+{ 
+	if (btree->root != NULL) traverseBTreeNode(btree->root); 
+} 
+
+// function to search a key in this tree 
+struct BTreeNode* searchBTree(struct BTree *btree, int k) 
+{ 
+	return (btree->root == NULL)? NULL : searchBTreeNode(btree->root, k); 
 } 
 
 // A utility function that returns the index of the first key that is 
@@ -171,7 +171,7 @@ void removeBTreeNode( struct BTreeNode *btn, int k)
 		// If this node is a leaf node, then the key is not present in tree 
 		if (btn->leaf) 
 		{ 
-			printf(" The key %d is does not exist in the tree\n",k); 
+			printf(" The key %d does not exist in the tree\n",k); 
 			return; 
 		} 
 
@@ -263,6 +263,7 @@ int getPredBTreeNode( struct BTreeNode *btn, int idx)
 	return cur->keys[cur->n-1]; 
 } 
 
+// A function to get successor of keys[idx] 
 int getSuccBTreeNode( struct BTreeNode *btn, int idx) 
 { 
 
@@ -552,37 +553,36 @@ void splitChildBTreeNode(struct BTreeNode *btn, int i, struct BTreeNode *y)
 	btn->n = btn->n + 1; 
 } 
 
-// Function to traverse all nodes in a subtree rooted with this node 
-void getHeightBTreeNode(struct BTreeNode *btn) 
+// Function to get height of the B-Tree traversing until the leaf node is found 
+void getHeightBTreeNode(struct BTreeNode *btn, int height) 
 {   
-	int i, height=0,temp=0;  
-	
-	// There are n keys and n+1 children, traverse through n keys 
-	// and first n children 
-	for (i = 0; i < btn->n; i++) 
-	{ 
-		// If this is not leaf, then before printing key[i], 
-		// traverse the subtree rooted with child C[i]. 
-		if (btn->leaf == false) 
-		{	
-			height = height + 1;  
-			getHeightBTreeNode(btn->C[i]);
-		} 
-	} 
-
-	// Print the subtree rooted with last child 
-	if (btn->leaf == false) 
-		getHeightBTreeNode(btn->C[i]); 
-	height = height + 1; 
-	printf("%d",height);    	
+	int i; 
 		
-	//return height; 
+	// Print the subtree rooted with last child 
+	if (btn->leaf == true)
+		printf("%d ",height); 
+	else
+	{
+		height = height + 1; 
+		// There are n keys and n+1 children, traverse through n keys 
+		// and first n children 
+		for (i = 0; i <= btn->n; i++)
+		{ 
+			// traverse the subtree rooted with child C[i]. 
+			if (btn->C[i] != NULL) 
+			{	 
+				getHeightBTreeNode(btn->C[i], height);
+				break; 
+			} 
+		} 		
+	}	
 } 
 
+// Get hight of BTree
 void getHeightBTree( struct BTree *btree ) 
 {   	
 	if (btree->root != NULL) 
-		getHeightBTreeNode(btree->root);
+		getHeightBTreeNode(btree->root, 1);
 	else
 		printf("0");  
 } 
@@ -627,6 +627,7 @@ struct BTreeNode* searchBTreeNode(struct BTreeNode *btn, int k)
 	return searchBTreeNode(btn->C[i], k); 
 } 
 
+// Remove BTree
 void removeBTree(struct BTree *btree, int k) 
 { 
 	if (!btree->root) 
@@ -654,7 +655,7 @@ void removeBTree(struct BTree *btree, int k)
 	return; 
 } 
 
-// Driver program to test above functions 
+// Driver code - Main is the first function that gets executed
 int main() 
 { 
     int choice,item,m;     	
@@ -691,7 +692,7 @@ int main()
 				printf("\n Enter the element to be deleted : ");
 				scanf(" %d",&item);
 				removeBTree(btree1, item); 
-				printf("\n Traversal of tree after delete is: ");
+				printf("\n Traversal of tree is: ");
 				traverseBTree(btree1);  
 				break;
 			case 3: 
@@ -704,7 +705,7 @@ int main()
 			       printf("\n 0 - Not found");
 				break;
 			case 4:
-				printf("\n Height of the Binary tree : ");
+				printf("\n Height of the BTree : ");
 				getHeightBTree(btree1);
 				break;
 			case 5:
@@ -715,7 +716,9 @@ int main()
 				printf("\n End of program ");
 		} 
 	} while(choice !=6);	
-	     		
+	
+	//Free memory occupied by BTree node
+	free(btree1);
 	return 0;   
 } 
 
