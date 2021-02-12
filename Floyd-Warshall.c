@@ -33,7 +33,8 @@ void doFloydWarshall(int graph[][V])
 		        if (matrix[i][k] + matrix[k][j] < matrix[i][j])
 		          	matrix[i][j] = matrix[i][k] + matrix[k][j]; 
       		}
-    	}	    
+    	}	 
+	//printf("\n");   
   	//printMatrix(matrix);
   }
   printf("\nAdjancey matrix with shortest paths: \n\n");

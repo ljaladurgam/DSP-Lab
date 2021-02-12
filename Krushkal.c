@@ -8,29 +8,33 @@
 #include<stdio.h>
  
 #define MAX 30
- 
+
+//Define structure for Edge
 typedef struct edge
 {
 	int src,dest,weight;
 }edge;
  
+//Define structure for List of edges
 typedef struct edgelist
 {
 	edge data[MAX];
 	int n;
 }edgelist;
  
-edgelist elist;
- 
+//Declare global variables 
+edgelist elist; 
 int G[MAX][MAX],n;
 edgelist spanlist;
  
+//Declare functions
 void kruskal();
 int find(int belongs[],int vertexno);
 void union1(int belongs[],int c1,int c2);
 void sort();
 void print();
- 
+
+// Driver code - Main is the first function that gets executed
 void main()
 {
 	int i,j,total_cost; 
@@ -46,7 +50,8 @@ void main()
 	kruskal();
 	print();
 }
- 
+
+//Function to perform Krushkal algorithm
 void kruskal()
 {
 	int belongs[MAX],i,j,cno1,cno2;
@@ -84,12 +89,14 @@ void kruskal()
 		}
 	}
 }
- 
+
+//Function to find
 int find(int belongs[],int vertexno)
 {
 	return(belongs[vertexno]);
 }
- 
+
+//Function for Union
 void union1(int belongs[],int c1,int c2)
 {
 	int i;
@@ -99,6 +106,7 @@ void union1(int belongs[],int c1,int c2)
 			belongs[i]=c1;
 }
  
+//Function to sort the edges in the ascending order of weights
 void sort()
 {
 	int i,j;
@@ -113,7 +121,8 @@ void sort()
 				elist.data[j+1]=temp;
 			}
 }
- 
+
+//Function to print the Minimum spanning tree
 void print()
 {
 	int i,cost=0;
