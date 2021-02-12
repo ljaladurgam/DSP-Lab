@@ -61,18 +61,13 @@ Link for questions: https://classroom.google.com/u/0/c/MjI5NjI4ODUyMjk3/a/MTg2MT
 1. Write a program to build a BST and to find the height of the tree using Iterative Method.
 2. Add the functions to print the preorder and In order traversal using Iterative Method.
 
-Lab-7: Jan 7, 2021
-Link for questions: https://classroom.google.com/u/0/c/MjI5NjI4ODUyMjk3/a/MjIzNTQ0OTU3MjIx/details
-
-1. Write Algorithms for DFS, BFS, Warshall and Floyd-warshall finding shortest paths.
-
-Lab-8: Jan 9, 2021
+Lab-7: Jan 9, 2021
 Link for questions: https://classroom.google.com/u/0/c/MjI5NjI4ODUyMjk3/a/MjUxNTM4NTk0NzQ3/details
 
 1. Implement Breadth First Search Algorithm using Queues. 
 2. Implement Depth First Search Algorithm using Stacks.
 
-Lab-9: Jan 23, 2021
+Lab-8: Jan 23, 2021
 Link for questions: https://classroom.google.com/u/0/c/MjI5NjI4ODUyMjk3/a/MjU5Mzk2ODUwODc4/details
 
 1. You should implement Adjacency List data structure to represent an undirected graph.
@@ -81,7 +76,7 @@ Link for questions: https://classroom.google.com/u/0/c/MjI5NjI4ODUyMjk3/a/MjU5Mz
 2. Implement Floyd-Warshall algorithm to find the shortest path between Nodes.
    Output should print the adjacency matrix with the shortest paths.
 
-Lab-10: Jan 29, 2021
+Lab-9: Jan 29, 2021
 Link for questions: https://classroom.google.com/u/0/c/MjI5NjI4ODUyMjk3/a/MjUyMzg2MTg0MTIx/details
 
 1. Write a Menu Driven Program on B - Trees
